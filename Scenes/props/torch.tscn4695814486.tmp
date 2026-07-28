@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://csd38svm0tddj"]
+
+[ext_resource type="Texture2D" uid="uid://cul5vs86m3eoi" path="res://Assets/TitleSets/Sprite/forgotten_forest_example_tileset.png" id="1_cjpd0"]
+[ext_resource type="Script" uid="uid://ctk5p4higuw80" path="res://general/scripts/light_flicker.gd" id="2_813mb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_813mb"]
+atlas = ExtResource("1_cjpd0")
+region = Rect2(512, 256, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8em1w"]
+atlas = ExtResource("1_cjpd0")
+region = Rect2(544, 256, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vx2rb"]
+atlas = ExtResource("1_cjpd0")
+region = Rect2(576, 256, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gawxv"]
+atlas = ExtResource("1_cjpd0")
+region = Rect2(608, 256, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opll5"]
+atlas = ExtResource("1_cjpd0")
+region = Rect2(640, 256, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pr1fc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_813mb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8em1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vx2rb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gawxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opll5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_cjpd0"]
+offsets = PackedFloat32Array(0, 0.28042328, 0.7037037, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.8194418, 0, 1, 0.4408114, 0.1526108, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pr1fc"]
+gradient = SubResource("Gradient_cjpd0")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.491453, 0.517094)
+fill_to = Vector2(1, 0.54273504)
+
+[node name="Torch" type="AnimatedSprite2D" unique_id=831172426]
+sprite_frames = SubResource("SpriteFrames_pr1fc")
+autoplay = "default"
+frame_progress = 0.8701181
+offset = Vector2(0, -32)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=40160338]
+position = Vector2(0, -32)
+texture = SubResource("GradientTexture2D_pr1fc")
+texture_scale = 0.5
+script = ExtResource("2_813mb")

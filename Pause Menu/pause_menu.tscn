@@ -1,0 +1,402 @@
+[gd_scene format=3 uid="uid://cwpi6ibf2c26s"]
+
+[ext_resource type="Script" uid="uid://c8l3du5krbgar" path="res://Pause Menu/scripts/pause_menu.gd" id="1_73vud"]
+[ext_resource type="PackedScene" uid="uid://dleucbb4esj" path="res://Pause Menu/map_node.tscn" id="2_3limv"]
+[ext_resource type="Texture2D" uid="uid://b0hdi33432nlf" path="res://Assets/VFX/abilities.png" id="3_0g3m2"]
+[ext_resource type="Script" uid="uid://bnq56djoweji7" path="res://Scripts/ability_list.gd" id="3_4x5p1"]
+
+[sub_resource type="FontVariation" id="FontVariation_pr1fc"]
+spacing_glyph = 11
+
+[sub_resource type="Gradient" id="Gradient_3limv"]
+offsets = PackedFloat32Array(0, 0.6137566)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0.22989917, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pr1fc"]
+gradient = SubResource("Gradient_3limv")
+width = 5
+height = 5
+fill = 1
+fill_from = Vector2(0.47863248, 0.491453)
+
+[sub_resource type="Animation" id="Animation_0g3m2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4x5p1"]
+resource_name = "default"
+length = 0.7
+loop_mode = 2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.53333336, 0.6745098, 0.9882353, 0.6745098)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iss3t"]
+_data = {
+&"RESET": SubResource("Animation_0g3m2"),
+&"default": SubResource("Animation_4x5p1")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr1fc"]
+atlas = ExtResource("3_0g3m2")
+region = Rect2(74, 43, 12, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g3m2"]
+atlas = ExtResource("3_0g3m2")
+region = Rect2(72, 9, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4x5p1"]
+atlas = ExtResource("3_0g3m2")
+region = Rect2(75, 65, 10, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iss3t"]
+atlas = ExtResource("3_0g3m2")
+region = Rect2(71, 103, 17, 17)
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=959617483]
+process_mode = 3
+script = ExtResource("1_73vud")
+
+[node name="Control" type="Control" parent="." unique_id=1254696054]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1461062375]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.17254902, 0.17254902, 0.17254902, 0.59607846)
+
+[node name="ColorRect2" type="ColorRect" parent="Control" unique_id=662435983]
+custom_minimum_size = Vector2(0, 107.52)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Control/ColorRect2" unique_id=731789256]
+modulate = Color(0.6118008, 0.23347709, 0.23347709, 1)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -519.0
+offset_top = -28.999998
+offset_right = -24.0
+offset_bottom = 28.999996
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_pr1fc")
+theme_override_font_sizes/font_size = 58
+text = "PAUSED"
+horizontal_alignment = 2
+
+[node name="PauseScreen" type="Control" parent="Control" unique_id=110137452]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 105.0
+offset_right = 4.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/PauseScreen" unique_id=747797111]
+layout_mode = 0
+offset_left = 284.0
+offset_top = 16.0
+offset_right = 340.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 30
+text = "Map"
+
+[node name="Label2" type="Label" parent="Control/PauseScreen" unique_id=1955429383]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 15.0
+offset_right = 109.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 30
+text = "Abilites"
+
+[node name="Map" type="Control" parent="Control/PauseScreen" unique_id=1605856354]
+anchors_preset = 0
+offset_left = 274.0
+offset_top = 19.0
+offset_right = 1092.0
+offset_bottom = 426.0
+
+[node name="MapNode" parent="Control/PauseScreen/Map" unique_id=1658865221 instance=ExtResource("2_3limv")]
+modulate = Color(0.28306407, 0.717025, 0.3994445, 1)
+layout_mode = 0
+offset_left = 101.0
+offset_top = 134.0
+offset_right = 133.0
+offset_bottom = 150.0
+linked_scene = "uid://c5xypnxeccx2e"
+entrances_right = Array[float]([3.0])
+
+[node name="MapNode2" parent="Control/PauseScreen/Map" unique_id=2076847835 instance=ExtResource("2_3limv")]
+modulate = Color(0.28306407, 0.717025, 0.3994445, 1)
+layout_mode = 0
+offset_left = 134.0
+offset_top = 130.0
+offset_right = 180.0
+offset_bottom = 146.0
+linked_scene = "uid://d0fio51nge8xs"
+entrances_top = Array[float]([2.0])
+entrances_right = Array[float]([5.8])
+entrances_bottom = Array[float]([9.0])
+entrances_left = Array[float]([6.6000004])
+
+[node name="MapNode3" parent="Control/PauseScreen/Map" unique_id=500291099 instance=ExtResource("2_3limv")]
+modulate = Color(0.30898455, 0.42256677, 0.79594314, 1)
+layout_mode = 0
+offset_left = 135.0
+offset_top = 148.0
+offset_right = 167.0
+offset_bottom = 164.0
+linked_scene = "uid://dvu2bn4pnfwjl"
+entrances_top = Array[float]([5.2])
+
+[node name="MapNode4" parent="Control/PauseScreen/Map" unique_id=987175677 instance=ExtResource("2_3limv")]
+modulate = Color(0.3290106, 0.90907985, 1, 1)
+layout_mode = 0
+offset_left = 134.0
+offset_top = 112.0
+offset_right = 162.0
+offset_bottom = 128.0
+linked_scene = "uid://cwhtv1jxr7mlf"
+entrances_bottom = Array[float]([2.0])
+
+[node name="MapNode5" parent="Control/PauseScreen/Map" unique_id=756587583 instance=ExtResource("2_3limv")]
+layout_mode = 0
+offset_left = 181.0
+offset_top = 132.0
+offset_right = 213.0
+offset_bottom = 148.0
+linked_scene = "uid://cifo2kih7f1rb"
+entrances_left = Array[float]([4.475])
+
+[node name="PlayerIndicator" type="Control" parent="Control/PauseScreen/Map" unique_id=309825345]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 0
+offset_left = 102.0
+offset_top = 87.0
+offset_right = 102.0
+offset_bottom = 87.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/PauseScreen/Map/PlayerIndicator" unique_id=119228089]
+layout_mode = 0
+offset_top = 3.0
+offset_right = 6.0
+offset_bottom = 9.0
+texture = SubResource("GradientTexture2D_pr1fc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/PauseScreen/Map/PlayerIndicator" unique_id=1721225570]
+libraries/ = SubResource("AnimationLibrary_iss3t")
+
+[node name="SystemMenuButton" type="Button" parent="Control/PauseScreen" unique_id=508508511]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -292.0
+offset_top = -45.0
+offset_right = -24.0
+offset_bottom = -5.5096436
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "System"
+
+[node name="AbilityList" type="VBoxContainer" parent="Control/PauseScreen" unique_id=1735402101]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 62.0
+offset_right = 74.0
+offset_bottom = 439.0
+theme_override_constants/separation = 83
+script = ExtResource("3_4x5p1")
+
+[node name="AbilityDoubleJump" type="TextureRect" parent="Control/PauseScreen/AbilityList" unique_id=866254287]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2.975, 2.975)
+texture = SubResource("AtlasTexture_pr1fc")
+stretch_mode = 3
+
+[node name="AbilityDash" type="TextureRect" parent="Control/PauseScreen/AbilityList" unique_id=1633843385]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2.975, 2.975)
+texture = SubResource("AtlasTexture_0g3m2")
+stretch_mode = 3
+
+[node name="AbilityGroundSlam" type="TextureRect" parent="Control/PauseScreen/AbilityList" unique_id=324686066]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2.975, 2.975)
+texture = SubResource("AtlasTexture_4x5p1")
+stretch_mode = 3
+
+[node name="AbilityMorph" type="TextureRect" parent="Control/PauseScreen/AbilityList" unique_id=377361739]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2.975, 2.975)
+texture = SubResource("AtlasTexture_iss3t")
+stretch_mode = 3
+
+[node name="System" type="Control" parent="Control" unique_id=1841382880]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 107.0
+offset_right = 4.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/System" unique_id=1168880084]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -354.0
+offset_top = 54.0
+offset_right = 354.0
+offset_bottom = 520.0
+grow_horizontal = 2
+theme_override_constants/separation = 29
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=872285568]
+layout_mode = 2
+
+[node name="BackToMap" type="Button" parent="Control/System/VBoxContainer/HBoxContainer" unique_id=1449429073]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 47
+text = "Back to Map"
+
+[node name="BackToTitle" type="Button" parent="Control/System/VBoxContainer/HBoxContainer" unique_id=1438798174]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 47
+text = "Back to Title"
+
+[node name="Label" type="Label" parent="Control/System/VBoxContainer" unique_id=1265729036]
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "Audio levels"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=358391781]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer2" unique_id=2144370912]
+custom_minimum_size = Vector2(131.82, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer2" unique_id=1885296551]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 9.765)
+offset_transform_visual_only = false
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=471001793]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer3" unique_id=266125699]
+custom_minimum_size = Vector2(131.82, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer3" unique_id=2033886930]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 9.765)
+offset_transform_visual_only = false
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=439772797]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer4" unique_id=313347903]
+custom_minimum_size = Vector2(131.82, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "UI"
+
+[node name="UISlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer4" unique_id=462743920]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 9.765)
+offset_transform_visual_only = false
+max_value = 1.0
+step = 0.05
+value = 0.5

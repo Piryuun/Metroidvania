@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://es7ip6ttn5jt"
+path="res://.godot/imported/The Lgend.mp3-6d87db9c15247cb4990684b9aaacfae8.mp3str"
+
+[deps]
+
+source_file="res://00_global/music/The Lgend.mp3"
+dest_files=["res://.godot/imported/The Lgend.mp3-6d87db9c15247cb4990684b9aaacfae8.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,15 @@
+TextureRect
+VBoxContainer
+AnimationPlayer
+AnimationTree
+CollisionShape2D
+DamageArea
+Breakable
+Sprite2D
+Node
+Button
+Node2D
+HBoxContainer
+Label
+ColorRect
+Control

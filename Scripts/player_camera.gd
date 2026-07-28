@@ -1,0 +1,28 @@
+class_name PlayerClass extends Camera2D
+
+var shake_strength : float = 0.0
+@export var shake_decay_rate : float = 5.0
+@export var max_shake_offset : float = 20.0
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	VisualEffect.camera_shook.connect(_apply_shake)
+	SceneManager.new_scene_ready.connect(_on_scene_transition)
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	offset = Vector2(
+		randf_range(-shake_strength, shake_strength),
+		randf_range(-shake_strength, shake_strength)
+	)
+	shake_strength = lerp(shake_strength, 0.0, shake_decay_rate * delta)
+	pass
+	
+func _apply_shake(strength:float) -> void:
+	shake_strength = min(strength, max_shake_offset)
+	pass
+	
+func _on_scene_transition(_t, _o) -> void:
+	reset_smoothing.call_deferred()

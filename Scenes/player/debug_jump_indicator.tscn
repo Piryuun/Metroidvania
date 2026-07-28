@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://gxatcnt0gvqu"]
+
+[sub_resource type="Gradient" id="Gradient_n5tyl"]
+offsets = PackedFloat32Array(0, 0.012048192, 0.76506025)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pr1fc"]
+gradient = SubResource("Gradient_n5tyl")
+
+[node name="Debug Jump Indicator" type="Node2D" unique_id=1378213134]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1829955827]
+position = Vector2(2, 20)
+scale = Vector2(1.0703126, 0.031249994)
+texture = SubResource("GradientTexture2D_pr1fc")

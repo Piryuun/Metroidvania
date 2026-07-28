@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dleucbb4esj"]
+
+[ext_resource type="Script" uid="uid://bugyspkqxhb6y" path="res://Pause Menu/scripts/map_node.gd" id="1_xiv1u"]
+
+[node name="MapNode" type="Control" unique_id=1658865221]
+custom_minimum_size = Vector2(28, 16)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 28.0
+offset_bottom = 16.0
+script = ExtResource("1_xiv1u")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1533628842]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=355408012]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=324616994]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=1063451910]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=53295492]
+modulate = Color(1, 1, 1, 0.44705883)
+layout_mode = 0
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 24.0
+offset_bottom = 10.0
+theme_override_font_sizes/font_size = 4
+text = "level name"
+
+[node name="TransitionBlocks" type="Control" parent="." unique_id=636547910]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

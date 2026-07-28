@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://h6leseac7mei"]
+
+[ext_resource type="Texture2D" uid="uid://efrgbylfuyqa" path="res://00_global/player_hud/health_bar_frame.png" id="1_hv14i"]
+[ext_resource type="Script" uid="uid://bah0jo4b2tdaf" path="res://00_global/player_hud/player_hud.gd" id="1_vb1bs"]
+[ext_resource type="Script" uid="uid://bfcc4nj0lwd12" path="res://Scripts/debug/debug_button.gd" id="2_26715"]
+
+[sub_resource type="Gradient" id="Gradient_vb1bs"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pr1fc"]
+gradient = SubResource("Gradient_vb1bs")
+width = 64
+
+[sub_resource type="Gradient" id="Gradient_26715"]
+colors = PackedColorArray(1, 0.37504625, 0.37504625, 1, 1, 0.23036289, 0.23036289, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gdkpx"]
+gradient = SubResource("Gradient_26715")
+
+[node name="PlayerHud" type="CanvasLayer" unique_id=1818752952]
+layer = 2
+script = ExtResource("1_vb1bs")
+
+[node name="Control" type="Control" parent="." unique_id=111537304]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="Control" unique_id=1327903354]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -312.0
+offset_bottom = 48.0
+grow_horizontal = 0
+size_flags_horizontal = 0
+text = "Toggle Dash"
+script = ExtResource("2_26715")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=400029112]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 0
+offset_left = 3.831936
+offset_top = 6.072834
+offset_right = 81.788574
+offset_bottom = 26.072834
+scale = Vector2(3.735, 3.735)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/MarginContainer" unique_id=433948766]
+layout_mode = 2
+texture = ExtResource("1_hv14i")
+region_rect = Rect2(0, 0, 40, 20)
+patch_margin_left = 27
+patch_margin_right = 7
+axis_stretch_horizontal = 1
+
+[node name="HpBar" type="TextureProgressBar" parent="Control/MarginContainer/NinePatchRect" unique_id=596502885]
+unique_name_in_owner = true
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 6.0
+offset_right = -3.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 50.0
+rounded = true
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture1D_pr1fc")
+texture_progress = SubResource("GradientTexture2D_gdkpx")
+
+[node name="GameOver" type="Control" parent="Control" unique_id=1228044294]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control/GameOver" unique_id=1751529363]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.41568628)
+
+[node name="Label" type="Label" parent="Control/GameOver" unique_id=1911301289]
+modulate = Color(0.61837727, 0.057049092, 0.057049092, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -156.0
+offset_right = 203.0
+offset_bottom = -73.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 87
+text = "Game Over"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/GameOver" unique_id=515049390]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = 44.0
+offset_right = 152.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(1.945, 1.945)
+offset_transform_visual_only = false
+
+[node name="LoadButton" type="Button" parent="Control/GameOver/HBoxContainer" unique_id=1009250101]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Load last save"
+
+[node name="QuitButton" type="Button" parent="Control/GameOver/HBoxContainer" unique_id=1982728576]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Quit to title"
