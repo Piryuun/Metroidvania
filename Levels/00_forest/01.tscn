@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cdw1pj4d3seyd" path="res://Scenes/props/plant.tscn" id="5_tqmmv"]
 [ext_resource type="Texture2D" uid="uid://de47uvuhpdq54" path="res://Assets/TitleSets/Sprite/light_stream.jpg" id="6_6cl2u"]
 [ext_resource type="PackedScene" uid="uid://d278e8fcc86fr" path="res://general/player_spawn/player_spawn.tscn" id="6_x3n6u"]
+[ext_resource type="Script" uid="uid://b4vgmi3wgjcrs" path="res://00_global/music/scripts/music_auto_trigger.gd" id="7_x3n6u"]
+[ext_resource type="AudioStream" uid="uid://bryegmn8afw8e" path="res://00_global/music/Field Of Hopes And Dreams.mp3" id="8_ineqx"]
 
 [sub_resource type="Gradient" id="Gradient_6cl2u"]
 offsets = PackedFloat32Array(0, 0.98941797)
@@ -242,3 +244,8 @@ scale = Vector2(0.886979, 0.9963504)
 texture = ExtResource("6_6cl2u")
 
 [node name="PlayerSpawn" parent="." unique_id=1446130991 instance=ExtResource("6_x3n6u")]
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=287898018]
+script = ExtResource("7_x3n6u")
+track = ExtResource("8_ineqx")
+metadata/_custom_type_script = "uid://b4vgmi3wgjcrs"

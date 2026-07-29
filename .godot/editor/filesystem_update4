@@ -1,1 +1,13 @@
 res://default_bus_layout.tres
+res://Levels/00_forest/05.tscn
+res://Assets/TitleSets/forgottne_forest.tres
+res://general/Door And Switch/door.tscn
+res://general/Door And Switch/door.gd
+res://general/Door And Switch/switch.tscn
+res://general/Door And Switch/switch.gd
+res://general/save_manager.gd
+res://Scenes/props/torch.tscn
+res://Title Screen/title_screen.tscn
+res://Levels/00_forest/01.tscn
+res://Scenes/player/player.tscn
+res://00_global/player_hud/player_hud.gd

@@ -28,13 +28,14 @@ func show_game_over() -> void:
 	game_over.modulate.a = 0
 	game_over.visible = true
 	
+	Audio.play_music(preload("res://00_global/music/Determination.mp3"))
+	
 	var tween = create_tween()
 	tween.tween_property(game_over, "modulate", Color.WHITE, 3.0)
 	await tween.finished
 	
 	load_button.visible = true
 	quit_button.visible = true
-	Audio.play_music(preload("res://00_global/music/Determination.mp3"))
 	
 	load_button.grab_focus()
 	
