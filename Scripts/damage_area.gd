@@ -5,7 +5,7 @@ signal damage_taken(attack_area)
 func take_damage (attack_area: AttackArea) -> void:
 	damage_taken.emit(attack_area)
 	#if audio:
-		#Audio.play_spatial_sound(audio, global_position)
+	#	Audio.play_spatial_sound(audio, global_position)
 
 func make_invulnerable(duration:float = 1.0) -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED

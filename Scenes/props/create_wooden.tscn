@@ -2,7 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dgtaacqpx2j3l" path="res://general/scripts/breakable.gd" id="1_w1yip"]
 [ext_resource type="Script" uid="uid://8vljrr7hh18p" path="res://Scripts/damage_area.gd" id="2_8q7dw"]
+[ext_resource type="Script" uid="uid://bwjveo8ikv4vx" path="res://00_global/VFX/hit_particle_settings.gd" id="2_wmepn"]
+[ext_resource type="Resource" uid="uid://d02oox1u0g5ou" path="res://00_global/VFX/Hit Particle Settings/hit_wood_medium.tres" id="3_8gqbp"]
+[ext_resource type="AudioStream" uid="uid://dvktgpbrnr7ck" path="res://00_global/audio/player/break_wood.wav" id="3_8q7dw"]
 [ext_resource type="Texture2D" uid="uid://cyxx7pux1efft" path="res://Assets/VFX/props_destructible.png" id="3_c08d7"]
+[ext_resource type="Resource" uid="uid://cmuewnlfrqfqa" path="res://00_global/VFX/Hit Particle Settings/hit_wood_small.tres" id="4_8ewqb"]
+[ext_resource type="Resource" uid="uid://cpsiqfn35qxl6" path="res://00_global/VFX/Hit Particle Settings/hit_wood_large.tres" id="5_3mkkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d8huw"]
 size = Vector2(38, 34)
@@ -12,12 +17,16 @@ size = Vector2(37, 29)
 
 [node name="Create" type="Node2D" unique_id=1318740762]
 script = ExtResource("1_w1yip")
+fixed_hit_count = true
+hit_particles = Array[ExtResource("2_wmepn")]([ExtResource("3_8gqbp")])
+destroy_particles = Array[ExtResource("2_wmepn")]([ExtResource("3_8gqbp"), ExtResource("4_8ewqb"), ExtResource("5_3mkkg")])
 metadata/_custom_type_script = "uid://dgtaacqpx2j3l"
 
 [node name="DamageArea" type="Area2D" parent="." unique_id=918847714]
 collision_layer = 64
 collision_mask = 0
 script = ExtResource("2_8q7dw")
+audio = ExtResource("3_8q7dw")
 metadata/_custom_type_script = "uid://8vljrr7hh18p"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1432111644]

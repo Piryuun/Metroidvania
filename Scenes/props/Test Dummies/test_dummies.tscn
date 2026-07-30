@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bl4ys5gv4yn3u" path="res://Scenes/props/Test Dummies/test_dummies.gd" id="1_hv4nx"]
 [ext_resource type="Texture2D" uid="uid://cvr2srki6csh" path="res://Assets/props_destructible.png" id="2_rh0wj"]
+[ext_resource type="Script" uid="uid://bwjveo8ikv4vx" path="res://00_global/VFX/hit_particle_settings.gd" id="2_ri6a1"]
+[ext_resource type="Resource" uid="uid://cmuewnlfrqfqa" path="res://00_global/VFX/Hit Particle Settings/hit_wood_small.tres" id="3_5ct0e"]
 [ext_resource type="Script" uid="uid://8vljrr7hh18p" path="res://Scripts/damage_area.gd" id="3_yvmdf"]
+[ext_resource type="Resource" uid="uid://d02oox1u0g5ou" path="res://00_global/VFX/Hit Particle Settings/hit_wood_medium.tres" id="4_5ct0e"]
 [ext_resource type="AudioStream" uid="uid://cbr1n4fdt7oq5" path="res://00_global/audio/player/hit.wav" id="4_yvmdf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a5odd"]
@@ -18,6 +21,7 @@ size = Vector2(15, 28.25)
 
 [node name="TestDummies" type="Node2D" unique_id=1039508591]
 script = ExtResource("1_hv4nx")
+particles = Array[ExtResource("2_ri6a1")]([ExtResource("3_5ct0e"), ExtResource("4_5ct0e")])
 
 [node name="BodySprite" type="Sprite2D" parent="." unique_id=1840652053]
 position = Vector2(-0.65, 14)

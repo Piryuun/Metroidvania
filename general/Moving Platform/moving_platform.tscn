@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://elih02fq8xma"]
+
+[ext_resource type="Texture2D" uid="uid://cul5vs86m3eoi" path="res://Assets/TitleSets/Sprite/forgotten_forest_example_tileset.png" id="1_lgbly"]
+[ext_resource type="Script" uid="uid://cvbiw2oh3qsva" path="res://general/Moving Platform/moving_platform.gd" id="1_r5m60"]
+
+[sub_resource type="Curve2D" id="Curve2D_r5m60"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 44.961525, 0, -86.885)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pr1fc"]
+size = Vector2(96, 26)
+
+[node name="MovingPlatform" type="Path2D" unique_id=280477767 node_paths=PackedStringArray("path_follow_2d")]
+curve = SubResource("Curve2D_r5m60")
+script = ExtResource("1_r5m60")
+path_follow_2d = NodePath("PathFollow2D")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=605584179]
+rotates = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D" unique_id=1636549803]
+remote_path = NodePath("../../AnimatableBody2D")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=2135686710]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=1036200913]
+texture = ExtResource("1_lgbly")
+region_enabled = true
+region_rect = Rect2(0, 192, 64, 32)
+
+[node name="Sprite2D2" type="Sprite2D" parent="AnimatableBody2D" unique_id=1200225670]
+position = Vector2(48, 0)
+texture = ExtResource("1_lgbly")
+region_enabled = true
+region_rect = Rect2(160, 192, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=1900711340]
+position = Vector2(16, 2)
+shape = SubResource("RectangleShape2D_pr1fc")
+one_way_collision = true

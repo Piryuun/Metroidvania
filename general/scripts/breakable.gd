@@ -9,8 +9,8 @@ signal damage_taken
 @export_category("Particles")
 
 @export var emission_offset : Vector2 = Vector2.ZERO
-#@export var hit_particles:Array[HitParticleSettings]
-#@export var destroy_particles:Array[HitParticleSettings]
+@export var hit_particles:Array[HitParticleSettings]
+@export var destroy_particles:Array[HitParticleSettings]
 
 @export_category("Audio")
 @export var hit_audio:AudioStream =preload("uid://cbr1n4fdt7oq5")
@@ -40,13 +40,13 @@ func _on_damage_taken(attack_area : AttackArea) -> void:
 	if hp > 0:
 		damage_taken.emit()
 		Audio.play_spatial_audio(hit_audio, pos)
-		#for p in hit_particles:
-		#	VisualEffect.hot_particles(pos, dir, p)
+		for p in hit_particles:
+			VisualEffect.hit_particles(pos, dir, p)
 	else:
 		destroyed.emit()
 		Audio.play_spatial_audio(destroy_audio, pos)
-		#for p in destroy_particles:
-		#	VisualEffect.hot_particles(pos, dir, p)
+		for p in destroy_particles:
+			VisualEffect.hit_particles(pos, dir, p)
 		
 		clear_collision()
 		var tween : Tween = create_tween()

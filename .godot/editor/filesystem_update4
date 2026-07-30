@@ -1,13 +1,31 @@
 res://default_bus_layout.tres
 res://Levels/00_forest/05.tscn
 res://Assets/TitleSets/forgottne_forest.tres
-res://general/Door And Switch/door.tscn
-res://general/Door And Switch/door.gd
-res://general/Door And Switch/switch.tscn
-res://general/Door And Switch/switch.gd
-res://general/save_manager.gd
+res://Levels/00_forest/06.tscn
 res://Scenes/props/torch.tscn
-res://Title Screen/title_screen.tscn
 res://Levels/00_forest/01.tscn
+res://Levels/00_castle/02.tscn
+res://Levels/00_castle/01.tscn
+res://Levels/00_castle/03.tscn
+res://Levels/00_forest/03.tscn
+res://00_global/VFX/hit_particle_settings.gd
+res://00_global/VFX/visual_effect.gd
+res://00_global/VFX/hit_particles.tscn
+res://00_global/VFX/hit_particles.gd
+res://00_global/player_hud/player_hud.tscn
+res://Scripts/debug/debug_button.gd
+res://00_global/VFX/Hit Particle Settings/hit_wood_medium.tres
+res://00_global/VFX/Hit Particle Settings/hit_wood_large.tres
+res://00_global/VFX/Hit Particle Settings/hit_wood_small.tres
+res://00_global/VFX/Hit Particle Settings/hit_magic_blue.tres
+res://Scenes/props/Test Dummies/test_dummies.gd
+res://Scenes/props/Test Dummies/test_dummies.tscn
+res://Scenes/playground.tscn
+res://Scenes/props/create_wooden.tscn
+res://general/scripts/breakable.gd
+res://Scenes/props/Test Dummies/spike_dummies.tscn
+res://00_global/Enemies/Slime/Slime.tscn
+res://00_global/Enemies/Slime/slime.gd
 res://Scenes/player/player.tscn
-res://00_global/player_hud/player_hud.gd
+res://00_global/Enemies/script/edge_detector.gd
+res://Scripts/damage_area.gd

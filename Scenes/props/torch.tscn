@@ -47,7 +47,7 @@ animations = [{
 }]
 
 [sub_resource type="Gradient" id="Gradient_cjpd0"]
-offsets = PackedFloat32Array(0.23809524, 0.41269842, 0.7037037, 1)
+offsets = PackedFloat32Array(0.23809524, 0.56084657, 0.7037037, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 0.8194418, 0, 1, 0.4408114, 0.1526108, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_pr1fc"]
@@ -57,6 +57,31 @@ height = 256
 fill = 1
 fill_from = Vector2(0.491453, 0.517094)
 fill_to = Vector2(1, 0.54273504)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8em1w"]
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_813mb"]
+offsets = PackedFloat32Array(0, 0.44827586, 1)
+colors = PackedColorArray(1.9602976, 1.8404398, 0.956488, 1, 1, 0.6864321, 0, 1, 1, 0, 0, 0.45882353)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_813mb"]
+gradient = SubResource("Gradient_813mb")
+use_hdr = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pr1fc"]
+particle_flag_disable_z = true
+direction = Vector3(0, -20, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.00002
+angular_velocity_max = 199.99998
+gravity = Vector3(0, 98, 0)
+color_ramp = SubResource("GradientTexture1D_813mb")
+turbulence_enabled = true
+turbulence_influence_max = 0.3
+turbulence_initial_displacement_min = -19.999998
+turbulence_initial_displacement_max = 20.000002
 
 [node name="Torch" type="AnimatedSprite2D" unique_id=831172426]
 sprite_frames = SubResource("SpriteFrames_pr1fc")
@@ -71,3 +96,10 @@ texture = SubResource("GradientTexture2D_pr1fc")
 script = ExtResource("2_813mb")
 flicker_intensity = 0.2
 flicker_frequency = 0.1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1807543467]
+material = SubResource("CanvasItemMaterial_8em1w")
+position = Vector2(0, -32)
+amount = 3
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_pr1fc")

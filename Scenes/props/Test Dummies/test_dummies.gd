@@ -1,6 +1,6 @@
 extends Node2D
 
-#@export var particles : Array[HitParticleSettings]
+@export var particles : Array[HitParticleSettings]
 @export var base_wooble_angle:float = 4.0
 @export var wobble_speed = 0.1
 var wobble_count : int = 0
@@ -19,8 +19,8 @@ func _on_damage_taken(attack_area : AttackArea) -> void:
 	if attack_area.global_position.x > global_position.x:
 		dir = -1
 	var pos:Vector2 = global_position + Vector2(0, -30)
-	#for p in particles:
-	#	VisualEffect.hot_particles(pos, Vector2(dir, 0), p)
+	for p in particles:
+		VisualEffect.hit_particles(pos, Vector2(dir, 0), p)
 	wobble_count = 5
 	wobble(dir)
 	pass

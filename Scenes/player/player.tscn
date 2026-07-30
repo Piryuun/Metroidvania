@@ -329,7 +329,7 @@ fill_from = Vector2(0.4957265, 0.4957265)
 fill_to = Vector2(0.8888889, 0.10683761)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uawwb"]
-size = Vector2(67.875, 17.625)
+size = Vector2(74.9375, 21.8125)
 
 [node name="Player" type="CharacterBody2D" unique_id=865724345 groups=["Player"]]
 z_index = 1
@@ -450,15 +450,13 @@ frame = 9
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=2020746003]
 unique_name_in_owner = true
-visible = false
 collision_layer = 0
 collision_mask = 96
 script = ExtResource("11_p8lfk")
-damage = 10.0
 metadata/_custom_type_script = "uid://bnmv64b8trcqi"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=533770107]
-position = Vector2(36, -29)
+position = Vector2(39.53125, -26.90625)
 shape = SubResource("RectangleShape2D_uawwb")
 debug_color = Color(0.70196074, 0, 0.025769163, 0.41960785)
 
