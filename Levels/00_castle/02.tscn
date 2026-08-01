@@ -35,6 +35,12 @@ size = 3
 target_level = "uid://cifo2kih7f1rb"
 target_area_name = "LevelTransitions3"
 
+[node name="LevelTransitions2" parent="." unique_id=1433419073 instance=ExtResource("3_fa1uv")]
+position = Vector2(542, -94)
+size = 3
+location = 1
+target_level = "uid://hfhf0lu7ta8w"
+
 [node name="Props" type="Node2D" parent="." unique_id=904750392]
 
 [node name="Torch" parent="Props" unique_id=747267430 instance=ExtResource("4_gifbt")]

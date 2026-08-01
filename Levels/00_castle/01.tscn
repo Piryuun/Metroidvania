@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://elih02fq8xma" path="res://general/Moving Platform/moving_platform.tscn" id="6_vun35"]
 [ext_resource type="PackedScene" uid="uid://ca4p0qdjx2haf" path="res://general/Door And Switch/door.tscn" id="9_unuj8"]
 [ext_resource type="PackedScene" uid="uid://coat7ohtghdrc" path="res://general/Door And Switch/switch.tscn" id="10_f126w"]
+[ext_resource type="PackedScene" uid="uid://d4fwg6mtmw0rn" path="res://00_global/Enemies/Slime/Slime.tscn" id="11_gx6m4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x1d4s"]
 size = Vector2(270, 134)
@@ -93,6 +94,8 @@ frame_progress = 0.78971004
 
 [node name="Breakable" type="Node2D" parent="." unique_id=1851512504]
 script = ExtResource("1_x1d4s")
+hit_particles = null
+destroy_particles = null
 metadata/_custom_type_script = "uid://dgtaacqpx2j3l"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Breakable" unique_id=1310880535]
@@ -161,3 +164,6 @@ position = Vector2(1407, -97)
 
 [node name="Switch" parent="Door" unique_id=348682489 instance=ExtResource("10_f126w")]
 position = Vector2(-412, -120)
+
+[node name="Slime" parent="." unique_id=1614233107 instance=ExtResource("11_gx6m4")]
+position = Vector2(583, -87)

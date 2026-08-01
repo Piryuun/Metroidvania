@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d4fwg6mtmw0rn"]
 
 [ext_resource type="Script" uid="uid://n220s0r7bblt" path="res://00_global/Enemies/Slime/slime.gd" id="1_bkln5"]
+[ext_resource type="AudioStream" uid="uid://bxolj0cuqifun" path="res://00_global/Enemies/Slime/slime_death.wav" id="2_56as8"]
 [ext_resource type="Texture2D" uid="uid://cb52bmu7msbm4" path="res://00_global/Enemies/Slime/slime.png" id="2_gnqxw"]
 [ext_resource type="Script" uid="uid://dfdg71qkw03wu" path="res://Scripts/hazard_area.gd" id="3_p27gh"]
 [ext_resource type="Script" uid="uid://8vljrr7hh18p" path="res://Scripts/damage_area.gd" id="4_sfdqy"]
@@ -93,6 +94,7 @@ size = Vector2(26, 18)
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_bkln5")
+death_sound = ExtResource("2_56as8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=102396354]
 visible = false

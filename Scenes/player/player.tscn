@@ -326,10 +326,10 @@ width = 256
 height = 256
 fill = 1
 fill_from = Vector2(0.4957265, 0.4957265)
-fill_to = Vector2(0.8888889, 0.10683761)
+fill_to = Vector2(1, 0.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uawwb"]
-size = Vector2(74.9375, 21.8125)
+size = Vector2(57.9375, 21.8125)
 
 [node name="Player" type="CharacterBody2D" unique_id=865724345 groups=["Player"]]
 z_index = 1
@@ -434,8 +434,8 @@ position_smoothing_enabled = true
 script = ExtResource("8_t3oqc")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=307389727]
-visible = false
 position = Vector2(0, -27)
+color = Color(1, 0.8641935, 0.60522425, 1)
 energy = 0.3
 texture = SubResource("GradientTexture2D_pr1fc")
 
@@ -456,7 +456,7 @@ script = ExtResource("11_p8lfk")
 metadata/_custom_type_script = "uid://bnmv64b8trcqi"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=533770107]
-position = Vector2(39.53125, -26.90625)
+position = Vector2(31.03125, -26.90625)
 shape = SubResource("RectangleShape2D_uawwb")
 debug_color = Color(0.70196074, 0, 0.025769163, 0.41960785)
 

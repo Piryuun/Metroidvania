@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bmx15jac506mt" path="res://Scenes/props/create_wooden.tscn" id="6_vl51c"]
 [ext_resource type="Script" uid="uid://dgtaacqpx2j3l" path="res://general/scripts/breakable.gd" id="7_opmy1"]
 [ext_resource type="PackedScene" uid="uid://bpkoometnxt3c" path="res://Scenes/props/Test Dummies/spike_dummies.tscn" id="8_wqftc"]
+[ext_resource type="PackedScene" uid="uid://cn075t1d1rns" path="res://00_global/Enemies/Slime 2/slime_2.tscn" id="10_6hjy0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pr1fc"]
 size = Vector2(127, 381)
@@ -66,3 +67,7 @@ position = Vector2(144, -20)
 
 [node name="SpikeDummies" parent="." unique_id=1662975769 instance=ExtResource("8_wqftc")]
 position = Vector2(167, -21)
+
+[node name="Slime2" parent="." unique_id=210998296 instance=ExtResource("10_6hjy0")]
+position = Vector2(-256, -164)
+affected_by_gravity = true

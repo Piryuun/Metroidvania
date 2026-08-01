@@ -165,10 +165,10 @@ func add_debug_indicatro(color : Color = Color.RED) -> void:
 func _on_player_healed (amount:float) -> void:
 	hp += amount
 	
-func _on_damage_taken(attack_area:AttackArea) -> void:
+func _on_damage_taken(a:AttackArea) -> void:
 	if current_state == PlayerStateDeath:
 		return
-	hp -= attack_area.damage
+	hp -= a.damage
 	damage_taken.emit()
 
 func can_dash() -> bool:

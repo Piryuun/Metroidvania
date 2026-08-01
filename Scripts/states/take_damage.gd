@@ -6,7 +6,7 @@ var time : float = 0.0
 var dir:float = 1.0
 
 @onready var damage_area: DamageArea = %DamageArea
-@onready var hurt_audio: AudioStreamPlayer2D = %HurtAudio
+const AARGH = preload("uid://01tvdwio7ll2")
 
 func init() -> void:
 	damage_area.damage_taken.connect(_on_damage_taken)
@@ -16,7 +16,7 @@ func enter() -> void:
 	player.animation_player.play("take_damage")
 	time = player.animation_player.current_animation_length
 	damage_area.make_invulnerable( invulnerable_duration)
-	hurt_audio.play()
+	Audio.play_spatial_sound(AARGH, player.global_position, false, true, 0.45)
 	VisualEffect.camera_shake(2)
 	pass
 	

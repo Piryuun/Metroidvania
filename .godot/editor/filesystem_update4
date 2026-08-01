@@ -1,31 +1,31 @@
 res://default_bus_layout.tres
-res://Levels/00_forest/05.tscn
+res://00_global/Enemies/Slime 2/slime_2.tscn
 res://Assets/TitleSets/forgottne_forest.tres
-res://Levels/00_forest/06.tscn
-res://Scenes/props/torch.tscn
-res://Levels/00_forest/01.tscn
-res://Levels/00_castle/02.tscn
-res://Levels/00_castle/01.tscn
-res://Levels/00_castle/03.tscn
-res://Levels/00_forest/03.tscn
-res://00_global/VFX/hit_particle_settings.gd
-res://00_global/VFX/visual_effect.gd
-res://00_global/VFX/hit_particles.tscn
-res://00_global/VFX/hit_particles.gd
-res://00_global/player_hud/player_hud.tscn
-res://Scripts/debug/debug_button.gd
+res://00_global/VFX/Hit Particle Settings/hit_wood_small.tres
 res://00_global/VFX/Hit Particle Settings/hit_wood_medium.tres
 res://00_global/VFX/Hit Particle Settings/hit_wood_large.tres
-res://00_global/VFX/Hit Particle Settings/hit_wood_small.tres
-res://00_global/VFX/Hit Particle Settings/hit_magic_blue.tres
-res://Scenes/props/Test Dummies/test_dummies.gd
-res://Scenes/props/Test Dummies/test_dummies.tscn
-res://Scenes/playground.tscn
-res://Scenes/props/create_wooden.tscn
-res://general/scripts/breakable.gd
-res://Scenes/props/Test Dummies/spike_dummies.tscn
-res://00_global/Enemies/Slime/Slime.tscn
-res://00_global/Enemies/Slime/slime.gd
-res://Scenes/player/player.tscn
 res://00_global/Enemies/script/edge_detector.gd
-res://Scripts/damage_area.gd
+res://Scripts/player.gd
+res://script_templates/DecisionEngine/decision_engine_default.gd
+res://script_templates/EnemyState/enemy_state_default.gd
+res://00_global/Enemies/script/decision_engines/decision_engine_basic.gd
+res://00_global/Enemies/script/states/es_walk.gd
+res://00_global/Enemies/script/states/es_stun.gd
+res://00_global/Enemies/script/states/es_death.gd
+res://Scenes/playground.tscn
+res://00_global/Enemies/script/enemy.gd
+res://00_global/Enemies/script/sensors/edge_sensor.gd
+res://00_global/Enemies/script/sensors/player_sensor.gd
+res://00_global/Enemies/script/enemy_hit_particles.gd
+res://00_global/Enemies/script/sensors/audio_sensor.gd
+res://00_global/audio/scripts/audio.gd
+res://00_global/Enemies/Slime/slime.gd
+res://general/scripts/breakable.gd
+res://Pause Menu/scripts/pause_menu.gd
+res://Scripts/states/death.gd
+res://Scripts/states/dash.gd
+res://Scripts/states/attack.gd
+res://Scenes/player/player.tscn
+res://Scripts/states/jump.gd
+res://Scripts/states/fall.gd
+res://Scripts/states/take_damage.gd
