@@ -59,7 +59,7 @@ func _on_player_sound(pos:Vector2, volume:float) -> void:
 	var sound_dist:float = global_position.distance_to(pos)
 	var sound_ratio:float = clampf(1 - sound_dist / audio_detect_dist, 0.0, 1.0) * 2
 	var perceived_vol:float= volume * sound_ratio
-	print(sound_ratio, "| ", perceived_vol)
+	#print(sound_ratio, "| ", perceived_vol)
 	if perceived_vol >= min_audio_sense:
 		timer = search_duration
 		enemy.blackboard.target = get_tree().get_first_node_in_group("Player")

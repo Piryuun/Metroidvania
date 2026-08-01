@@ -10,33 +10,34 @@
 [ext_resource type="PackedScene" uid="uid://elih02fq8xma" path="res://general/Moving Platform/moving_platform.tscn" id="6_vun35"]
 [ext_resource type="PackedScene" uid="uid://ca4p0qdjx2haf" path="res://general/Door And Switch/door.tscn" id="9_unuj8"]
 [ext_resource type="PackedScene" uid="uid://coat7ohtghdrc" path="res://general/Door And Switch/switch.tscn" id="10_f126w"]
-[ext_resource type="PackedScene" uid="uid://d4fwg6mtmw0rn" path="res://00_global/Enemies/Slime/Slime.tscn" id="11_gx6m4"]
+[ext_resource type="PackedScene" uid="uid://benirusiranxk" path="res://00_global/Enemies/bringer_of_death/bringer_of_death.tscn" id="11_gx6m4"]
+[ext_resource type="Script" uid="uid://d3mnrp3l8nwof" path="res://general/scripts/patrol_limt.gd" id="12_gdsmv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x1d4s"]
 size = Vector2(270, 134)
 
-[sub_resource type="Curve2D" id="Curve2D_qe2lc"]
+[sub_resource type="Curve2D" id="Curve2D_gdsmv"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 44.961525, 0, 416)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_gx6m4"]
+[sub_resource type="Curve2D" id="Curve2D_wwefm"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 44.961525, 0, 395.565)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_gdsmv"]
+[sub_resource type="Curve2D" id="Curve2D_a5tkt"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 44.961525, 0, -371)
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_wwefm"]
+[sub_resource type="Curve2D" id="Curve2D_sf2wr"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 44.961525, 0, -371)
@@ -94,8 +95,6 @@ frame_progress = 0.78971004
 
 [node name="Breakable" type="Node2D" parent="." unique_id=1851512504]
 script = ExtResource("1_x1d4s")
-hit_particles = null
-destroy_particles = null
 metadata/_custom_type_script = "uid://dgtaacqpx2j3l"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Breakable" unique_id=1310880535]
@@ -133,28 +132,28 @@ position = Vector2(-200, -93)
 
 [node name="MovingPlatform" parent="Platforms" unique_id=280477767 instance=ExtResource("6_vun35")]
 position = Vector2(-10, -564)
-curve = SubResource("Curve2D_qe2lc")
+curve = SubResource("Curve2D_gdsmv")
 path_time = 3.0
 ease = 2
 transition = 4
 
 [node name="MovingPlatform2" parent="Platforms" unique_id=1314486349 instance=ExtResource("6_vun35")]
 position = Vector2(574, -564)
-curve = SubResource("Curve2D_gx6m4")
+curve = SubResource("Curve2D_wwefm")
 path_time = 3.0
 ease = 2
 transition = 4
 
 [node name="MovingPlatform3" parent="Platforms" unique_id=973880186 instance=ExtResource("6_vun35")]
 position = Vector2(339, -174)
-curve = SubResource("Curve2D_gdsmv")
+curve = SubResource("Curve2D_a5tkt")
 path_time = 3.0
 ease = 2
 transition = 4
 
 [node name="MovingPlatform4" parent="Platforms" unique_id=1899576487 instance=ExtResource("6_vun35")]
 position = Vector2(1251, -174)
-curve = SubResource("Curve2D_wwefm")
+curve = SubResource("Curve2D_sf2wr")
 path_time = 3.0
 ease = 2
 transition = 4
@@ -165,5 +164,32 @@ position = Vector2(1407, -97)
 [node name="Switch" parent="Door" unique_id=348682489 instance=ExtResource("10_f126w")]
 position = Vector2(-412, -120)
 
-[node name="Slime" parent="." unique_id=1614233107 instance=ExtResource("11_gx6m4")]
-position = Vector2(583, -87)
+[node name="Enemies" type="Node2D" parent="." unique_id=2064192826]
+
+[node name="bringer_of_death" parent="Enemies" unique_id=210998296 instance=ExtResource("11_gx6m4")]
+position = Vector2(833, -573)
+
+[node name="PatrolLimit" type="Node2D" parent="Enemies/bringer_of_death" unique_id=1906368137]
+position = Vector2(-45, -1)
+script = ExtResource("12_gdsmv")
+metadata/_custom_type_script = "uid://d3mnrp3l8nwof"
+
+[node name="PatrolLimit2" type="Node2D" parent="Enemies/bringer_of_death" unique_id=331440987]
+position = Vector2(260, -3)
+script = ExtResource("12_gdsmv")
+side = 2
+metadata/_custom_type_script = "uid://d3mnrp3l8nwof"
+
+[node name="bringer_of_death2" parent="Enemies" unique_id=2002590885 instance=ExtResource("11_gx6m4")]
+position = Vector2(233, -94)
+
+[node name="PatrolLimit" type="Node2D" parent="Enemies/bringer_of_death2" unique_id=1951879996]
+position = Vector2(-88, 1)
+script = ExtResource("12_gdsmv")
+metadata/_custom_type_script = "uid://d3mnrp3l8nwof"
+
+[node name="PatrolLimit2" type="Node2D" parent="Enemies/bringer_of_death2" unique_id=183846330]
+position = Vector2(197, 0)
+script = ExtResource("12_gdsmv")
+side = 2
+metadata/_custom_type_script = "uid://d3mnrp3l8nwof"

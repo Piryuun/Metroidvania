@@ -1,31 +1,25 @@
 res://default_bus_layout.tres
-res://00_global/Enemies/Slime 2/slime_2.tscn
 res://Assets/TitleSets/forgottne_forest.tres
 res://00_global/VFX/Hit Particle Settings/hit_wood_small.tres
 res://00_global/VFX/Hit Particle Settings/hit_wood_medium.tres
 res://00_global/VFX/Hit Particle Settings/hit_wood_large.tres
-res://00_global/Enemies/script/edge_detector.gd
-res://Scripts/player.gd
-res://script_templates/DecisionEngine/decision_engine_default.gd
-res://script_templates/EnemyState/enemy_state_default.gd
-res://00_global/Enemies/script/decision_engines/decision_engine_basic.gd
-res://00_global/Enemies/script/states/es_walk.gd
-res://00_global/Enemies/script/states/es_stun.gd
-res://00_global/Enemies/script/states/es_death.gd
+res://general/health_pickup/health_pickup.tscn
+res://general/health_pickup/health_pickup.gd
 res://Scenes/playground.tscn
+res://general/scripts/loot_data.gd
+res://general/scripts/loot_dropper.gd
+res://00_global/Enemies/Slime 2/slime_2.tscn
+res://00_global/Enemies/bringer_of_death/bringer_of_death.tscn
 res://00_global/Enemies/script/enemy.gd
-res://00_global/Enemies/script/sensors/edge_sensor.gd
-res://00_global/Enemies/script/sensors/player_sensor.gd
-res://00_global/Enemies/script/enemy_hit_particles.gd
-res://00_global/Enemies/script/sensors/audio_sensor.gd
-res://00_global/audio/scripts/audio.gd
-res://00_global/Enemies/Slime/slime.gd
-res://general/scripts/breakable.gd
-res://Pause Menu/scripts/pause_menu.gd
-res://Scripts/states/death.gd
-res://Scripts/states/dash.gd
-res://Scripts/states/attack.gd
+res://00_global/Enemies/bringer_of_death/BOD.gd
+res://00_global/Enemies/script/decision_engines/decision_engine_attack.gd
+res://00_global/Enemies/script/decision_engines/decision_engine_basic_attack.gd
+res://00_global/Enemies/script/states/es_attack.gd
 res://Scenes/player/player.tscn
-res://Scripts/states/jump.gd
-res://Scripts/states/fall.gd
-res://Scripts/states/take_damage.gd
+res://00_global/Enemies/script/states/es_chase.gd
+res://general/scripts/patrol_limt.gd
+res://00_global/Enemies/script/states/es_walk.gd
+res://00_global/Enemies/script/sensors/player_sensor.gd
+res://Levels/00_castle/01.tscn
+res://Levels/00_castle/03.tscn
+res://Scenes/props/torch.tscn

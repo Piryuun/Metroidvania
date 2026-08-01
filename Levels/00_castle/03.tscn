@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d278e8fcc86fr" path="res://general/player_spawn/player_spawn.tscn" id="7_pahb6"]
 [ext_resource type="PackedScene" uid="uid://bmx15jac506mt" path="res://Scenes/props/create_wooden.tscn" id="7_ws26n"]
 [ext_resource type="PackedScene" uid="uid://elih02fq8xma" path="res://general/Moving Platform/moving_platform.tscn" id="8_3r3o4"]
-[ext_resource type="PackedScene" uid="uid://d4fwg6mtmw0rn" path="res://00_global/Enemies/Slime/Slime.tscn" id="8_lorhb"]
+[ext_resource type="PackedScene" uid="uid://benirusiranxk" path="res://00_global/Enemies/bringer_of_death/bringer_of_death.tscn" id="9_gibsb"]
 
 [sub_resource type="Curve2D" id="Curve2D_gibsb"]
 resource_local_to_scene = true
@@ -145,7 +145,6 @@ target_level = "uid://hfhf0lu7ta8w"
 target_area_name = "LevelTransitions2"
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=813836050]
-visible = false
 energy = 0.85
 blend_mode = 1
 
@@ -181,10 +180,10 @@ ease = 2
 
 [node name="Enemies" type="Node2D" parent="." unique_id=435415019]
 
-[node name="Slime" parent="Enemies" unique_id=1614233107 instance=ExtResource("8_lorhb")]
-position = Vector2(204, -346)
-move_speed = 50.0
+[node name="bringer_of_death" parent="Enemies" unique_id=210998296 instance=ExtResource("9_gibsb")]
+position = Vector2(172, -347)
+health = 5.0
 
-[node name="Slime2" parent="Enemies" unique_id=2057607138 instance=ExtResource("8_lorhb")]
-position = Vector2(91, -1211)
-move_speed = 50.0
+[node name="bringer_of_death2" parent="Enemies" unique_id=99988670 instance=ExtResource("9_gibsb")]
+position = Vector2(304, -744)
+health = 5.0
