@@ -32,9 +32,18 @@ func _on_damage_taken() -> void:
 func _on_destroyed() -> void:
 	SaveManager.persistent_data[get_ability_name()] = "acquired"
 	reward_ability()
+	play_text_animation()
 	orb_anim.play("destroy")
 	await orb_anim.animation_finished
 	queue_free()
+	
+func play_text_animation() -> void:
+	PlayerHud.ability_text.text = get_ability_name_up() + " Obtain!!"
+	
+	PlayerHud.ability_pickup.visible = true
+	PlayerHud.animation_player.play("show")
+	PlayerHud.animation_player.seek(0)
+	
 	
 func _set_animation() -> void:
 	if not ability_anim:
@@ -64,4 +73,16 @@ func get_ability_name() -> String:
 			return "ground_slam"
 		Type.MORPH:
 			return "morph_roll"
+	return ""
+	
+func get_ability_name_up() -> String:
+	match type:
+		Type.DOUBLE_JUMP:
+			return "Double Jump"
+		Type.DASH:
+			return "Dash"
+		Type.GROUND_SLAM:
+			return "Ground Slam"
+		Type.MORPH:
+			return "Morph Roll"
 	return ""

@@ -47,7 +47,7 @@ animations = [{
 }]
 
 [sub_resource type="Gradient" id="Gradient_cjpd0"]
-offsets = PackedFloat32Array(0.23809524, 0.56084657, 0.7037037, 1)
+offsets = PackedFloat32Array(0.32804233, 0.55026454, 0.78835976, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 0.8194418, 0, 1, 0.4408114, 0.1526108, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_pr1fc"]

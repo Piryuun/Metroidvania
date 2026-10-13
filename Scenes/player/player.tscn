@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://bjq1r701egjfo" path="res://Scripts/states/death.gd" id="11_nyrd7"]
 [ext_resource type="Script" uid="uid://bnmv64b8trcqi" path="res://Scripts/attack_area.gd" id="11_p8lfk"]
 [ext_resource type="Script" uid="uid://c5qlvqd0qfh3r" path="res://Scripts/states/dash.gd" id="12_dpkfr"]
+[ext_resource type="Script" uid="uid://bo5hkkspqen07" path="res://Scripts/states/ground_slam.gd" id="14_egohg"]
 [ext_resource type="Script" uid="uid://8vljrr7hh18p" path="res://Scripts/damage_area.gd" id="14_g7b1g"]
 [ext_resource type="AudioStream" uid="uid://01tvdwio7ll2" path="res://00_global/audio/player/aargh.wav" id="16_6vj4j"]
 [ext_resource type="AudioStream" uid="uid://cq28tss517jqk" path="res://00_global/audio/player/jump.wav" id="18_spm8d"]
@@ -235,6 +236,21 @@ tracks/0/keys = {
 "values": [47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60]
 }
 
+[sub_resource type="Animation" id="Animation_egohg"]
+resource_name = "ground_slam"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [43]
+}
+
 [sub_resource type="Animation" id="Animation_kd672"]
 resource_name = "idle"
 tracks/0/type = "value"
@@ -308,6 +324,7 @@ _data = {
 &"crouch": SubResource("Animation_6k3cy"),
 &"dash": SubResource("Animation_dpkfr"),
 &"death": SubResource("Animation_ic3d6"),
+&"ground_slam": SubResource("Animation_egohg"),
 &"idle": SubResource("Animation_kd672"),
 &"jump": SubResource("Animation_t3oqc"),
 &"run": SubResource("Animation_p8lfk"),
@@ -315,7 +332,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_npmqq"]
-size = Vector2(16, 3)
+size = Vector2(22, 6)
 
 [sub_resource type="Gradient" id="Gradient_xxarj"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -329,7 +346,13 @@ fill_from = Vector2(0.4957265, 0.4957265)
 fill_to = Vector2(1, 0.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uawwb"]
-size = Vector2(57.9375, 21.8125)
+size = Vector2(55.9375, 21.8125)
+
+[sub_resource type="Environment" id="Environment_pr1fc"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 0.81
+glow_bloom = 0.1
 
 [node name="Player" type="CharacterBody2D" unique_id=865724345 groups=["Player"]]
 z_index = 1
@@ -338,6 +361,7 @@ collision_mask = 3
 floor_constant_speed = true
 floor_max_angle = 0.8709193
 script = ExtResource("1_v0iea")
+move_speed = 200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1233099849]
 texture_filter = 1
@@ -354,7 +378,6 @@ texture = ExtResource("3_ag54m")
 hframes = 8
 
 [node name="CollisionStand" type="CollisionShape2D" parent="." unique_id=717899438]
-visible = false
 position = Vector2(0, -23)
 shape = SubResource("CapsuleShape2D_xxarj")
 
@@ -389,6 +412,7 @@ script = ExtResource("6_6upyo")
 [node name="Attack" type="Node" parent="States" unique_id=458437327]
 unique_name_in_owner = true
 script = ExtResource("9_g7b1g")
+speed = 200.0
 
 [node name="TakeDamage" type="Node" parent="States" unique_id=1475799073]
 unique_name_in_owner = true
@@ -402,6 +426,11 @@ script = ExtResource("11_nyrd7")
 unique_name_in_owner = true
 script = ExtResource("12_dpkfr")
 
+[node name="GroundSlam" type="Node" parent="States" unique_id=5884533]
+unique_name_in_owner = true
+script = ExtResource("14_egohg")
+velocity = 900.0
+
 [node name="Label" type="Label" parent="." unique_id=192496378]
 visible = false
 offset_left = -33.0
@@ -410,11 +439,6 @@ offset_right = 38.0
 offset_bottom = -62.0
 text = "Label"
 horizontal_alignment = 1
-
-[node name="OneWayPlatformRayCast" type="RayCast2D" parent="." unique_id=1527907650]
-visible = false
-target_position = Vector2(0, 4)
-collision_mask = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2018628826]
 libraries/ = SubResource("AnimationLibrary_uawwb")
@@ -425,6 +449,14 @@ visible = false
 shape = SubResource("RectangleShape2D_npmqq")
 target_position = Vector2(0, 6)
 collision_mask = 2
+
+[node name="GroundSlamShapeCast" type="ShapeCast2D" parent="." unique_id=1129731658]
+scale = Vector2(1.4799994, 1)
+shape = SubResource("RectangleShape2D_npmqq")
+target_position = Vector2(0, 18)
+max_results = 4
+collision_mask = 192
+collide_with_areas = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1729452813]
 process_mode = 3
@@ -457,6 +489,21 @@ metadata/_custom_type_script = "uid://bnmv64b8trcqi"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=533770107]
 position = Vector2(31.03125, -26.90625)
+shape = SubResource("RectangleShape2D_uawwb")
+debug_color = Color(0.70196074, 0, 0.025769163, 0.41960785)
+
+[node name="GroundSlamAttack" type="Area2D" parent="." unique_id=1545425751]
+unique_name_in_owner = true
+visible = false
+collision_layer = 0
+collision_mask = 96
+monitorable = false
+script = ExtResource("11_p8lfk")
+metadata/_custom_type_script = "uid://bnmv64b8trcqi"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundSlamAttack" unique_id=2016674583]
+position = Vector2(0, -11.000001)
+scale = Vector2(1, 0.8797471)
 shape = SubResource("RectangleShape2D_uawwb")
 debug_color = Color(0.70196074, 0, 0.025769163, 0.41960785)
 
@@ -495,3 +542,6 @@ stream = ExtResource("18_spm8d")
 unique_name_in_owner = true
 position = Vector2(0, -23)
 stream = ExtResource("19_dpkfr")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1562781136]
+environment = SubResource("Environment_pr1fc")

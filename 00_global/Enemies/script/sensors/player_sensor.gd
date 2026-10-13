@@ -43,7 +43,7 @@ func _on_body_entered(n: Node2D) -> void:
 	enemy.blackboard.target = n
 	pass
 	
-func _on_body_exited(n: Node2D) -> void:
+func _on_body_exited(_n: Node2D) -> void:
 	started_searching.emit()
 	can_see_player = false
 	timer = search_duration

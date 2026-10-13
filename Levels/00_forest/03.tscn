@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://dr8qm0u3joh3" path="res://general/level_transitions/level_transitions.tscn" id="4_pmami"]
 [ext_resource type="PackedScene" uid="uid://d278e8fcc86fr" path="res://general/player_spawn/player_spawn.tscn" id="5_2mcn2"]
 [ext_resource type="PackedScene" uid="uid://csd38svm0tddj" path="res://Scenes/props/torch.tscn" id="5_qk8lb"]
+[ext_resource type="PackedScene" uid="uid://cn075t1d1rns" path="res://00_global/Enemies/Slime 2/slime_2.tscn" id="6_2mcn2"]
+[ext_resource type="Script" uid="uid://b4vgmi3wgjcrs" path="res://00_global/music/scripts/music_auto_trigger.gd" id="7_gujx2"]
+[ext_resource type="AudioStream" uid="uid://bjlcbxwd36nbi" path="res://00_global/music/scarlet forest.mp3" id="8_ivhmu"]
 
 [node name="03" type="Node2D" unique_id=1068941156]
 
@@ -59,3 +62,17 @@ blend_mode = 1
 
 [node name="PlayerSpawn" parent="." unique_id=1446130991 instance=ExtResource("5_2mcn2")]
 position = Vector2(-19, -174)
+
+[node name="Slime2" parent="." unique_id=210998296 instance=ExtResource("6_2mcn2")]
+position = Vector2(726, -101)
+
+[node name="Slime3" parent="." unique_id=1812544276 instance=ExtResource("6_2mcn2")]
+position = Vector2(99, -95)
+
+[node name="Slime4" parent="." unique_id=1930502418 instance=ExtResource("6_2mcn2")]
+position = Vector2(760, -227)
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=1415331769]
+script = ExtResource("7_gujx2")
+track = ExtResource("8_ivhmu")
+metadata/_custom_type_script = "uid://b4vgmi3wgjcrs"

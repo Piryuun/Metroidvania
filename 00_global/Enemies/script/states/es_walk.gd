@@ -39,4 +39,3 @@ func _set_limits() -> void:
 				left_limit = c.global_position.x
 			else:
 				right_limit = c.global_position.x
-	print("l: ", left_limit, " |r: ", right_limit)

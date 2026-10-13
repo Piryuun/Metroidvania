@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://bwjveo8ikv4vx" path="res://00_global/VFX/hit_particle_settings.gd" id="15_g40cr"]
 [ext_resource type="Script" uid="uid://dvm7rsqs2rv8v" path="res://general/scripts/loot_dropper.gd" id="16_xcsop"]
 [ext_resource type="Script" uid="uid://big8yocu35ft5" path="res://general/scripts/loot_data.gd" id="17_s36oe"]
+[ext_resource type="Script" uid="uid://cknb7pmhd0dnc" path="res://general/scripts/enemy_modulate.gd" id="18_s36oe"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66wgn"]
 radius = 8.997612
@@ -153,12 +154,6 @@ metadata/_custom_type_script = "uid://bwjveo8ikv4vx"
 [sub_resource type="Resource" id="Resource_pr1fc"]
 script = ExtResource("17_s36oe")
 item = "uid://bxeysfilydt0q"
-maximum = 6
-metadata/_custom_type_script = "uid://big8yocu35ft5"
-
-[sub_resource type="Resource" id="Resource_1l8yw"]
-script = ExtResource("17_s36oe")
-item = "uid://bxeysfilydt0q"
 metadata/_custom_type_script = "uid://big8yocu35ft5"
 
 [node name="Slime2" type="CharacterBody2D" unique_id=210998296]
@@ -237,6 +232,7 @@ script = ExtResource("12_p4sfe")
 metadata/_custom_type_script = "uid://bahxhuew6yy8m"
 
 [node name="PlayerSensor" type="Area2D" parent="." unique_id=557435390]
+visible = false
 script = ExtResource("13_04t65")
 min_audio_sense = 0.4
 metadata/_custom_type_script = "uid://cnw178ypjvom4"
@@ -262,5 +258,9 @@ metadata/_custom_type_script = "uid://bmgyu3ddti3bl"
 [node name="LootDropper" type="Marker2D" parent="." unique_id=1978999686]
 position = Vector2(0, -10)
 script = ExtResource("16_xcsop")
-items = Array[ExtResource("17_s36oe")]([SubResource("Resource_pr1fc"), SubResource("Resource_1l8yw")])
+items = Array[ExtResource("17_s36oe")]([SubResource("Resource_pr1fc")])
 metadata/_custom_type_script = "uid://dvm7rsqs2rv8v"
+
+[node name="EnemeyModulate" type="Node" parent="." unique_id=1796177974]
+script = ExtResource("18_s36oe")
+metadata/_custom_type_script = "uid://cknb7pmhd0dnc"

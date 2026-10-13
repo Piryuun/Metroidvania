@@ -1,2 +1,3 @@
+FogMaterial
 HitParticleSettings
 TileSet

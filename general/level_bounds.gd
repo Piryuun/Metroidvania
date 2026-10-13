@@ -4,6 +4,8 @@ class_name LevelBounds extends Node2D
 @export_range(480, 2048, 32, "suffix:px") var width : int = 480 : set = _on_width_changed
 @export_range(270, 2048, 32, "suffix:px") var height : int = 270 : set = _on_height_changed
 
+@export var camera_zoom:float = 2.0
+
 func _ready() -> void:
 	z_index = 256
 	
@@ -11,9 +13,11 @@ func _ready() -> void:
 		return
 		
 	var camera : Camera2D = null
-	while  not camera:
+	while not camera:
 		await get_tree().process_frame
 		camera = get_viewport().get_camera_2d()
+		
+	camera.zoom = Vector2(camera_zoom, camera_zoom)
 		
 	camera.limit_left = int(global_position.x)
 	camera.limit_top = int(global_position.y)

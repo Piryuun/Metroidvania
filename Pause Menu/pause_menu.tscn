@@ -154,6 +154,7 @@ theme_override_font_sizes/font_size = 30
 text = "Abilites"
 
 [node name="Map" type="Control" parent="Control/PauseScreen" unique_id=1605856354]
+visible = false
 anchors_preset = 0
 offset_left = 274.0
 offset_top = 19.0
@@ -213,23 +214,66 @@ linked_scene = "uid://cifo2kih7f1rb"
 entrances_right = Array[float]([11.0, 3.5])
 entrances_left = Array[float]([11.0])
 
-[node name="MapNode6" parent="Control/PauseScreen/Map" unique_id=1885647075 instance=ExtResource("2_3limv")]
+[node name="MapNode7" parent="Control/PauseScreen/Map" unique_id=1797011647 instance=ExtResource("2_3limv")]
 layout_mode = 0
-offset_left = 218.0
-offset_top = 143.0
-offset_right = 262.0
-offset_bottom = 160.0
+offset_left = 216.0
+offset_top = 136.0
+offset_right = 260.0
+offset_bottom = 163.0
 linked_scene = "uid://bpllry4031hep"
-entrances_left = Array[float]([12.0])
+entrances_right = Array[float]([22.0])
+entrances_left = Array[float]([22.0])
 
-[node name="MapNode7" parent="Control/PauseScreen/Map" unique_id=208563065 instance=ExtResource("2_3limv")]
+[node name="MapNode8" parent="Control/PauseScreen/Map" unique_id=1165496408 instance=ExtResource("2_3limv")]
 layout_mode = 0
-offset_left = 218.0
-offset_top = 125.0
-offset_right = 246.0
-offset_bottom = 141.0
+offset_left = 217.0
+offset_top = 118.0
+offset_right = 245.0
+offset_bottom = 134.0
 linked_scene = "uid://sr3jtn5dqkkb"
+entrances_right = Array[float]([3.0])
 entrances_left = Array[float]([3.0749998])
+
+[node name="MapNode9" parent="Control/PauseScreen/Map" unique_id=1292541151 instance=ExtResource("2_3limv")]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 124.0
+offset_right = 291.0
+offset_bottom = 163.0
+linked_scene = "uid://baoegunqt2qiw"
+entrances_top = Array[float]([24.0])
+entrances_left = Array[float]([34.0])
+
+[node name="MapNode10" parent="Control/PauseScreen/Map" unique_id=603256761 instance=ExtResource("2_3limv")]
+layout_mode = 0
+offset_left = 277.0
+offset_top = 107.0
+offset_right = 305.0
+offset_bottom = 123.0
+linked_scene = "uid://hfhf0lu7ta8w"
+entrances_right = Array[float]([2.975])
+entrances_bottom = Array[float]([8.725])
+entrances_left = Array[float]([2.9499998])
+
+[node name="MapNode11" parent="Control/PauseScreen/Map" unique_id=1213362406 instance=ExtResource("2_3limv")]
+layout_mode = 0
+offset_left = 306.0
+offset_top = 105.0
+offset_right = 339.0
+offset_bottom = 141.0
+linked_scene = "uid://dd0ttg7qu3piy"
+entrances_top = Array[float]([23.125])
+entrances_right = Array[float]([31.0])
+entrances_left = Array[float]([5.425])
+
+[node name="MapNode12" parent="Control/PauseScreen/Map" unique_id=699053301 instance=ExtResource("2_3limv")]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 129.0
+offset_right = 370.0
+offset_bottom = 145.0
+linked_scene = "uid://bvbxevv8u03p0"
+entrances_left = Array[float]([7.325])
 
 [node name="PlayerIndicator" type="Control" parent="Control/PauseScreen/Map" unique_id=309825345]
 unique_name_in_owner = true

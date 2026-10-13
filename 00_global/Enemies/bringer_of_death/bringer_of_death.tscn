@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://benirusiranxk"]
 
-[ext_resource type="Script" uid="uid://dviof8ir8i0yb" path="res://00_global/Enemies/bringer_of_death/BOD.gd" id="1_dbs3v"]
+[ext_resource type="Script" uid="uid://iw1wl02vdimv" path="res://00_global/Enemies/script/enemy.gd" id="1_k5c1c"]
 [ext_resource type="Texture2D" uid="uid://cfinhqwwi6jug" path="res://00_global/Enemies/bringer_of_death/Bringer-of-Death-SpritSheet.png" id="2_dbs3v"]
 [ext_resource type="Script" uid="uid://dfdg71qkw03wu" path="res://Scripts/hazard_area.gd" id="3_f6t0c"]
 [ext_resource type="Script" uid="uid://8vljrr7hh18p" path="res://Scripts/damage_area.gd" id="4_rkxb5"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://d05135bese5nc" path="res://00_global/Enemies/script/decision_engines/decision_engine_basic_attack.gd" id="17_dbs3v"]
 [ext_resource type="Script" uid="uid://big8yocu35ft5" path="res://general/scripts/loot_data.gd" id="17_hgov7"]
 [ext_resource type="Script" uid="uid://bnmv64b8trcqi" path="res://Scripts/attack_area.gd" id="19_lte4p"]
+[ext_resource type="Script" uid="uid://cknb7pmhd0dnc" path="res://general/scripts/enemy_modulate.gd" id="21_l46by"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66wgn"]
 radius = 14.0
@@ -209,8 +210,7 @@ size = Vector2(60, 42)
 [node name="bringer_of_death" type="CharacterBody2D" unique_id=210998296]
 collision_layer = 0
 collision_mask = 3
-script = ExtResource("1_dbs3v")
-affected_by_gravity = true
+script = ExtResource("1_k5c1c")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1387688528]
 position = Vector2(36, -45)
@@ -288,14 +288,15 @@ animation_name = "walk"
 metadata/_custom_type_script = "uid://gtxnt7ff5c53"
 
 [node name="EdgeSensor" type="RayCast2D" parent="." unique_id=1752424853]
-position = Vector2(14, -2)
-target_position = Vector2(0, 8)
+position = Vector2(14, -6)
+target_position = Vector2(0, 14)
+collision_mask = 3
 script = ExtResource("12_r0d8v")
 metadata/_custom_type_script = "uid://bahxhuew6yy8m"
 
 [node name="PlayerSensor" type="Area2D" parent="." unique_id=557435390]
 script = ExtResource("13_6knc3")
-min_audio_sense = 0.4
+min_audio_sense = 0.3
 metadata/_custom_type_script = "uid://cnw178ypjvom4"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerSensor" unique_id=1733584120]
@@ -332,3 +333,7 @@ metadata/_custom_type_script = "uid://bnmv64b8trcqi"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1031843101]
 position = Vector2(42, -22)
 shape = SubResource("RectangleShape2D_pr1fc")
+
+[node name="EnemeyModulate" type="Node" parent="." unique_id=422090338]
+script = ExtResource("21_l46by")
+metadata/_custom_type_script = "uid://cknb7pmhd0dnc"

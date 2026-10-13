@@ -6,7 +6,7 @@ signal was_hit(a:AttackArea)
 signal was_killed()
 
 @export var health:float = 3
-@export var affected_by_gravity:bool = false
+@export var affected_by_gravity:bool = true
 @export var face_left_on_start:bool = false :
 	set(value):
 		face_left_on_start = value
@@ -68,8 +68,12 @@ func change_dir(new_dir:float) -> void:
 	if sprite:
 		if new_dir < 0:
 			sprite.flip_h = true
+			if sprite.texture == preload("uid://cfinhqwwi6jug"):
+				sprite.offset.x = 70
 		elif new_dir > 0:
 			sprite.flip_h = false
+			if sprite.texture == preload("uid://cfinhqwwi6jug"):
+				sprite.offset.x = 0
 	pass
 	
 func play_animation(anim_name:String) -> void:

@@ -7,10 +7,15 @@ extends CanvasLayer
 @onready var load_button: Button = %LoadButton
 @onready var quit_button: Button = %QuitButton
 
+@onready var ability_pickup: Control = %AbilityPickupText
+@onready var ability_text: Label = %AbilityText
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
+
 func _ready() -> void:
 	Messages.player_healed_changed.connect(update_health_bar)
 	
 	game_over.visible = false
+	ability_pickup.visible = false
 	
 	load_button.pressed.connect(_on_load_pressed)
 	quit_button.pressed.connect(_on_quit_pressed)
@@ -27,6 +32,8 @@ func show_game_over() -> void:
 	
 	game_over.modulate.a = 0
 	game_over.visible = true
+	
+	ability_pickup.visible = false
 	
 	Audio.play_music(preload("res://00_global/music/Determination.mp3"))
 	

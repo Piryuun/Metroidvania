@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://de47uvuhpdq54" path="res://Assets/TitleSets/Sprite/light_stream.jpg" id="5_rv1xp"]
 [ext_resource type="PackedScene" uid="uid://d278e8fcc86fr" path="res://general/player_spawn/player_spawn.tscn" id="5_srrd8"]
 [ext_resource type="PackedScene" uid="uid://cdw1pj4d3seyd" path="res://Scenes/props/plant.tscn" id="6_lkkuq"]
+[ext_resource type="PackedScene" uid="uid://cn075t1d1rns" path="res://00_global/Enemies/Slime 2/slime_2.tscn" id="7_6343h"]
+[ext_resource type="Script" uid="uid://b4vgmi3wgjcrs" path="res://00_global/music/scripts/music_auto_trigger.gd" id="8_7kgrg"]
+[ext_resource type="AudioStream" uid="uid://bjlcbxwd36nbi" path="res://00_global/music/scarlet forest.mp3" id="9_srrd8"]
 
 [sub_resource type="Gradient" id="Gradient_g21jb"]
 offsets = PackedFloat32Array(0, 0.98941797)
@@ -195,3 +198,16 @@ position = Vector2(432, 64)
 [node name="Plant3" parent="Props" unique_id=1071637817 instance=ExtResource("6_lkkuq")]
 position = Vector2(616, 0)
 flip_h = true
+
+[node name="Slime2" parent="." unique_id=210998296 instance=ExtResource("7_6343h")]
+position = Vector2(328, 0)
+face_left_on_start = true
+
+[node name="Slime3" parent="." unique_id=1183382659 instance=ExtResource("7_6343h")]
+position = Vector2(496, -8)
+face_left_on_start = true
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=1217480167]
+script = ExtResource("8_7kgrg")
+track = ExtResource("9_srrd8")
+metadata/_custom_type_script = "uid://b4vgmi3wgjcrs"

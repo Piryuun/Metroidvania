@@ -10,7 +10,6 @@ signal damage_taken
 @onready var attack_sprite: Sprite2D = %AttackSprite
 @onready var collision_stand: CollisionShape2D = $CollisionStand
 @onready var collision_crouch: CollisionShape2D = $CollisionCrouch
-@onready var one_way_platform_ray_cast: RayCast2D = $OneWayPlatformRayCast
 @onready var one_way_platform_shape_cast: ShapeCast2D = $OneWayPlatformShapeCast
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var attack_area: AttackArea = %AttackArea
@@ -18,6 +17,7 @@ signal damage_taken
 @onready var da_crouch: CollisionShape2D = %DACrouch
 @onready var damage_area: DamageArea = %DamageArea
 
+@onready var camera: PlayerClass = $Camera2D
 #endregion
 #region // export Var
 @export var move_speed : float = 150.0
@@ -63,7 +63,7 @@ func _ready() -> void:
 	Messages.back_to_title_screen.connect(queue_free)
 	damage_area.damage_taken.connect(_on_damage_taken)
 	hp = max_hp
-
+	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump") and velocity.y < 0:
 		velocity.y *= 0.5

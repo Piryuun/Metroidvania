@@ -20,6 +20,9 @@ func decide() -> EnemyState:
 	if current_state is ESDeath or not blackboard.can_decide:
 		return null
 		
+	if blackboard.edge_detected:
+		enemy.change_dir( -blackboard.dir )
+		
 	if blackboard.target:
 		if attack_state.can_attack():
 			return attack_state

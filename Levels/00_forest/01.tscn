@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://de47uvuhpdq54" path="res://Assets/TitleSets/Sprite/light_stream.jpg" id="6_6cl2u"]
 [ext_resource type="PackedScene" uid="uid://d278e8fcc86fr" path="res://general/player_spawn/player_spawn.tscn" id="6_x3n6u"]
 [ext_resource type="Script" uid="uid://b4vgmi3wgjcrs" path="res://00_global/music/scripts/music_auto_trigger.gd" id="7_x3n6u"]
-[ext_resource type="AudioStream" uid="uid://bryegmn8afw8e" path="res://00_global/music/Field Of Hopes And Dreams.mp3" id="8_ineqx"]
+[ext_resource type="AudioStream" uid="uid://bjlcbxwd36nbi" path="res://00_global/music/scarlet forest.mp3" id="8_ph3v0"]
+[ext_resource type="PackedScene" uid="uid://cn075t1d1rns" path="res://00_global/Enemies/Slime 2/slime_2.tscn" id="9_ph3v0"]
+[ext_resource type="Material" uid="uid://d8qbkhifvr72" path="res://materials_and_shaders/fog_fade_material.tres" id="10_387fj"]
 
 [sub_resource type="Gradient" id="Gradient_6cl2u"]
 offsets = PackedFloat32Array(0, 0.98941797)
@@ -20,6 +22,21 @@ fill_from = Vector2(1, 1)
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pr1fc"]
 blend_mode = 1
 light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_387fj"]
+offsets = PackedFloat32Array(0.23280424, 1)
+colors = PackedColorArray(0.342762, 0.49170816, 0.52630603, 0, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xxe7p"]
+seed = 3
+frequency = 0.0043
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pr1fc"]
+height = 286
+noise = SubResource("FastNoiseLite_xxe7p")
+color_ramp = SubResource("Gradient_387fj")
+seamless = true
+seamless_blend_skirt = 0.3
 
 [node name="01" type="Node2D" unique_id=1068941156]
 
@@ -100,22 +117,6 @@ size = 14
 location = 1
 target_level = "uid://d0fio51nge8xs"
 
-[node name="Foreground" type="Parallax2D" parent="." unique_id=1717032326]
-modulate = Color(0.023071289, 0.046875, 0.026790619, 1)
-z_index = 10
-scroll_scale = Vector2(1.4, 1)
-
-[node name="TileMapLayer" type="TileMapLayer" parent="Foreground" unique_id=1285030768]
-tile_map_data = PackedByteArray("AAD2//7/AAAXAAkAAAD2////AAAXAAoAAAD2/wAAAAAXAAsAAAD2/wEAAAAXAAwAAAD2/wIAAAAXAA0AAAD3//7/AAAYAAkAAAD3////AAAYAAoAAAD3/wAAAAAYAAsAAAD3/wEAAAAYAAwAAAD3/wIAAAAYAA0AAAD3/wMAAAAYAA4AAAD3/wQAAAAYAA8AAAD4////AAAZAAoAAAD4/wAAAAAZAAsAAAD4/wEAAAAZAAwAAAD4/wIAAAAZAA0AAAD8/wAAAAAXAAkAAAD8/wEAAAAXAAoAAAD8/wIAAAAXAAsAAAD8/wMAAAAXAAwAAAD8/wQAAAAXAA0AAAD9/wAAAAAYAAkAAAD9/wEAAAAYAAoAAAD9/wIAAAAYAAsAAAD9/wMAAAAYAAwAAAD9/wQAAAAYAA0AAAD9/wUAAAAYAA4AAAD9/wYAAAAYAA8AAAD+/wEAAAAZAAoAAAD+/wIAAAAZAAsAAAD+/wMAAAAZAAwAAAD+/wQAAAAZAA0AAAAJAP7/AAAXAAkAAAAJAP//AAAXAAoAAAAJAAAAAAAXAAsAAAAJAAEAAAAXAAwAAAAJAAIAAAAXAA0AAAAKAP7/AAAYAAkAAAAKAP//AAAYAAoAAAAKAAAAAAAYAAsAAAAKAAEAAAAYAAwAAAAKAAIAAAAYAA0AAAAKAAMAAAAYAA4AAAAKAAQAAAAYAA8AAAALAP//AAAZAAoAAAALAAAAAAAZAAsAAAALAAEAAAAZAAwAAAALAAIAAAAZAA0AAAATAP3/AAAXAAkAAAATAP7/AAAXAAoAAAATAP//AAAXAAsAAAATAAAAAAAXAAwAAAATAAEAAAAXAA0AAAAUAP3/AAAYAAkAAAAUAP7/AAAYAAoAAAAUAP//AAAYAAsAAAAUAAAAAAAYAAwAAAAUAAEAAAAYAA0AAAAUAAIAAAAYAA4AAAAUAAMAAAAYAA8AAAAVAP7/AAAZAAoAAAAVAP//AAAZAAsAAAAVAAAAAAAZAAwAAAAVAAEAAAAZAA0AAAAOAAAAAAAXAAkAAAAOAAEAAAAXAAoAAAAOAAIAAAAXAAsAAAAOAAMAAAAXAAwAAAAOAAQAAAAXAA0AAAAPAAAAAAAYAAkAAAAPAAEAAAAYAAoAAAAPAAIAAAAYAAsAAAAPAAMAAAAYAAwAAAAPAAQAAAAYAA0AAAAPAAUAAAAYAA4AAAAPAAYAAAAYAA8AAAAQAAEAAAAZAAoAAAAQAAIAAAAZAAsAAAAQAAMAAAAZAAwAAAAQAAQAAAAZAA0AAAAgAP7/AAAXAAkAAAAgAP//AAAXAAoAAAAgAAAAAAAXAAsAAAAgAAEAAAAXAAwAAAAgAAIAAAAXAA0AAAAhAP7/AAAYAAkAAAAhAP//AAAYAAoAAAAhAAAAAAAYAAsAAAAhAAEAAAAYAAwAAAAhAAIAAAAYAA0AAAAhAAMAAAAYAA4AAAAhAAQAAAAYAA8AAAAiAP//AAAZAAoAAAAiAAAAAAAZAAsAAAAiAAEAAAAZAAwAAAAiAAIAAAAZAA0AAAAbAAAAAAAXAAkAAAAbAAEAAAAXAAoAAAAbAAIAAAAXAAsAAAAbAAMAAAAXAAwAAAAbAAQAAAAXAA0AAAAcAAAAAAAYAAkAAAAcAAEAAAAYAAoAAAAcAAIAAAAYAAsAAAAcAAMAAAAYAAwAAAAcAAQAAAAYAA0AAAAcAAUAAAAYAA4AAAAcAAYAAAAYAA8AAAAdAAEAAAAZAAoAAAAdAAIAAAAZAAsAAAAdAAMAAAAZAAwAAAAdAAQAAAAZAA0AAAABAAMAAAAUAAUAAAACAAMAAAAVAAUAAAADAAMAAAAVAAUAAAAEAAMAAAAVAAUAAAAFAAMAAAATAAUAAAAFAAIAAAATAAAAAAAEAAIAAAAVAAAAAAADAAIAAAAUAAMAAAACAAIAAAAUAAIAAAABAAIAAAATAAMAAAABAAEAAAAUAAAAAAACAAEAAAAVAAAAAAADAAEAAAATAAAAAAAXAAMAAAAUAAUAAAAYAAMAAAAVAAUAAAAZAAMAAAAVAAUAAAAaAAMAAAATAAUAAAAaAAIAAAAWAAQAAAAZAAIAAAAUAAIAAAAYAAIAAAAUAAIAAAAXAAIAAAATAAMAAAAXAAEAAAAUAAAAAAAYAAEAAAAUAAEAAAAZAAEAAAAUAAIAAAAaAAEAAAAWAAQAAAAYAAAAAAAUAAAAAAAZAAAAAAAVAAAAAAAaAAAAAAATAAAAAAAeAAMAAAAUAAUAAAAfAAMAAAATAAUAAAAfAAIAAAATAAAAAAAeAAIAAAAQAAIAAAAeAAEAAAAXAAMAAAA=")
-tile_set = ExtResource("1_7qh6m")
-collision_enabled = false
-
-[node name="TileMapLayer2" type="TileMapLayer" parent="Foreground" unique_id=1303068648]
-position = Vector2(0, 2.505)
-tile_map_data = PackedByteArray("AAAEAAAAAAAVAAcAAAAEAAEAAAAVAAgAAAAaAP7/AAAVAAcAAAAaAP//AAAVAAgAAAAfAAAAAAAVAAcAAAAfAAEAAAAVAAgAAAA=")
-tile_set = ExtResource("1_7qh6m")
-collision_enabled = false
-
 [node name="Props" type="Node2D" parent="." unique_id=1074097437]
 
 [node name="Plant" parent="Props" unique_id=242896465 instance=ExtResource("5_tqmmv")]
@@ -174,10 +175,38 @@ flip_h = true
 [node name="Plant7" parent="Props2" unique_id=327596906 instance=ExtResource("5_tqmmv")]
 position = Vector2(543.545, -32)
 
-[node name="Light1" type="Parallax2D" parent="." unique_id=495130051]
+[node name="PlayerSpawn" parent="." unique_id=1446130991 instance=ExtResource("6_x3n6u")]
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=287898018]
+script = ExtResource("7_x3n6u")
+track = ExtResource("8_ph3v0")
+metadata/_custom_type_script = "uid://b4vgmi3wgjcrs"
+
+[node name="Slime2" parent="." unique_id=210998296 instance=ExtResource("9_ph3v0")]
+position = Vector2(574, -165)
+
+[node name="ForegroundElements" type="Node2D" parent="." unique_id=1665492437]
+
+[node name="Foreground" type="Parallax2D" parent="ForegroundElements" unique_id=1717032326]
+modulate = Color(0.023071289, 0.046875, 0.026790619, 1)
+z_index = 10
+scroll_scale = Vector2(1.4, 1)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="ForegroundElements/Foreground" unique_id=1285030768]
+tile_map_data = PackedByteArray("AAD2//7/AAAXAAkAAAD2////AAAXAAoAAAD2/wAAAAAXAAsAAAD2/wEAAAAXAAwAAAD2/wIAAAAXAA0AAAD3//7/AAAYAAkAAAD3////AAAYAAoAAAD3/wAAAAAYAAsAAAD3/wEAAAAYAAwAAAD3/wIAAAAYAA0AAAD3/wMAAAAYAA4AAAD3/wQAAAAYAA8AAAD4////AAAZAAoAAAD4/wAAAAAZAAsAAAD4/wEAAAAZAAwAAAD4/wIAAAAZAA0AAAD8/wAAAAAXAAkAAAD8/wEAAAAXAAoAAAD8/wIAAAAXAAsAAAD8/wMAAAAXAAwAAAD8/wQAAAAXAA0AAAD9/wAAAAAYAAkAAAD9/wEAAAAYAAoAAAD9/wIAAAAYAAsAAAD9/wMAAAAYAAwAAAD9/wQAAAAYAA0AAAD9/wUAAAAYAA4AAAD9/wYAAAAYAA8AAAD+/wEAAAAZAAoAAAD+/wIAAAAZAAsAAAD+/wMAAAAZAAwAAAD+/wQAAAAZAA0AAAAJAP7/AAAXAAkAAAAJAP//AAAXAAoAAAAJAAAAAAAXAAsAAAAJAAEAAAAXAAwAAAAJAAIAAAAXAA0AAAAKAP7/AAAYAAkAAAAKAP//AAAYAAoAAAAKAAAAAAAYAAsAAAAKAAEAAAAYAAwAAAAKAAIAAAAYAA0AAAAKAAMAAAAYAA4AAAAKAAQAAAAYAA8AAAALAP//AAAZAAoAAAALAAAAAAAZAAsAAAALAAEAAAAZAAwAAAALAAIAAAAZAA0AAAATAP3/AAAXAAkAAAATAP7/AAAXAAoAAAATAP//AAAXAAsAAAATAAAAAAAXAAwAAAATAAEAAAAXAA0AAAAUAP3/AAAYAAkAAAAUAP7/AAAYAAoAAAAUAP//AAAYAAsAAAAUAAAAAAAYAAwAAAAUAAEAAAAYAA0AAAAUAAIAAAAYAA4AAAAUAAMAAAAYAA8AAAAVAP7/AAAZAAoAAAAVAP//AAAZAAsAAAAVAAAAAAAZAAwAAAAVAAEAAAAZAA0AAAAOAAAAAAAXAAkAAAAOAAEAAAAXAAoAAAAOAAIAAAAXAAsAAAAOAAMAAAAXAAwAAAAOAAQAAAAXAA0AAAAPAAAAAAAYAAkAAAAPAAEAAAAYAAoAAAAPAAIAAAAYAAsAAAAPAAMAAAAYAAwAAAAPAAQAAAAYAA0AAAAPAAUAAAAYAA4AAAAPAAYAAAAYAA8AAAAQAAEAAAAZAAoAAAAQAAIAAAAZAAsAAAAQAAMAAAAZAAwAAAAQAAQAAAAZAA0AAAAgAP7/AAAXAAkAAAAgAP//AAAXAAoAAAAgAAAAAAAXAAsAAAAgAAEAAAAXAAwAAAAgAAIAAAAXAA0AAAAhAP7/AAAYAAkAAAAhAP//AAAYAAoAAAAhAAAAAAAYAAsAAAAhAAEAAAAYAAwAAAAhAAIAAAAYAA0AAAAhAAMAAAAYAA4AAAAhAAQAAAAYAA8AAAAiAP//AAAZAAoAAAAiAAAAAAAZAAsAAAAiAAEAAAAZAAwAAAAiAAIAAAAZAA0AAAAbAAAAAAAXAAkAAAAbAAEAAAAXAAoAAAAbAAIAAAAXAAsAAAAbAAMAAAAXAAwAAAAbAAQAAAAXAA0AAAAcAAAAAAAYAAkAAAAcAAEAAAAYAAoAAAAcAAIAAAAYAAsAAAAcAAMAAAAYAAwAAAAcAAQAAAAYAA0AAAAcAAUAAAAYAA4AAAAcAAYAAAAYAA8AAAAdAAEAAAAZAAoAAAAdAAIAAAAZAAsAAAAdAAMAAAAZAAwAAAAdAAQAAAAZAA0AAAABAAMAAAAUAAUAAAACAAMAAAAVAAUAAAADAAMAAAAVAAUAAAAEAAMAAAAVAAUAAAAFAAMAAAATAAUAAAAFAAIAAAATAAAAAAAEAAIAAAAVAAAAAAADAAIAAAAUAAMAAAACAAIAAAAUAAIAAAABAAIAAAATAAMAAAABAAEAAAAUAAAAAAACAAEAAAAVAAAAAAADAAEAAAATAAAAAAAXAAMAAAAUAAUAAAAYAAMAAAAVAAUAAAAZAAMAAAAVAAUAAAAaAAMAAAATAAUAAAAaAAIAAAAWAAQAAAAZAAIAAAAUAAIAAAAYAAIAAAAUAAIAAAAXAAIAAAATAAMAAAAXAAEAAAAUAAAAAAAYAAEAAAAUAAEAAAAZAAEAAAAUAAIAAAAaAAEAAAAWAAQAAAAYAAAAAAAUAAAAAAAZAAAAAAAVAAAAAAAaAAAAAAATAAAAAAAeAAMAAAAUAAUAAAAfAAMAAAATAAUAAAAfAAIAAAATAAAAAAAeAAIAAAAQAAIAAAAeAAEAAAAXAAMAAAA=")
+tile_set = ExtResource("1_7qh6m")
+collision_enabled = false
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="ForegroundElements/Foreground" unique_id=1303068648]
+position = Vector2(0, 2.505)
+tile_map_data = PackedByteArray("AAAEAAAAAAAVAAcAAAAEAAEAAAAVAAgAAAAaAP7/AAAVAAcAAAAaAP//AAAVAAgAAAAfAAAAAAAVAAcAAAAfAAEAAAAVAAgAAAA=")
+tile_set = ExtResource("1_7qh6m")
+collision_enabled = false
+
+[node name="Light1" type="Parallax2D" parent="ForegroundElements" unique_id=495130051]
 scroll_scale = Vector2(1.1, 1)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Light1" unique_id=1639096674]
+[node name="Sprite2D2" type="Sprite2D" parent="ForegroundElements/Light1" unique_id=1639096674]
 modulate = Color(0.9485828, 0.8590522, 0.4934686, 0.49803922)
 z_index = 4
 material = SubResource("CanvasItemMaterial_pr1fc")
@@ -186,7 +215,7 @@ rotation = 0.33666804
 scale = Vector2(0.5136578, 0.9638026)
 texture = ExtResource("6_6cl2u")
 
-[node name="Sprite2D3" type="Sprite2D" parent="Light1" unique_id=420156305]
+[node name="Sprite2D3" type="Sprite2D" parent="ForegroundElements/Light1" unique_id=420156305]
 modulate = Color(0.9485828, 0.8590522, 0.4934686, 0.49803922)
 z_index = 4
 material = SubResource("CanvasItemMaterial_pr1fc")
@@ -195,7 +224,7 @@ rotation = 0.20546158
 scale = Vector2(0.39827493, 0.96806055)
 texture = ExtResource("6_6cl2u")
 
-[node name="Sprite2D4" type="Sprite2D" parent="Light1" unique_id=471794650]
+[node name="Sprite2D4" type="Sprite2D" parent="ForegroundElements/Light1" unique_id=471794650]
 modulate = Color(0.9485828, 0.8590522, 0.4934686, 0.49803922)
 z_index = 4
 material = SubResource("CanvasItemMaterial_pr1fc")
@@ -204,10 +233,10 @@ rotation = 0.20551634
 scale = Vector2(0.5219833, 0.9442474)
 texture = ExtResource("6_6cl2u")
 
-[node name="Light2" type="Parallax2D" parent="." unique_id=2074745427]
+[node name="Light2" type="Parallax2D" parent="ForegroundElements" unique_id=2074745427]
 scroll_scale = Vector2(1.2, 1)
 
-[node name="Sprite2D5" type="Sprite2D" parent="Light2" unique_id=934363463]
+[node name="Sprite2D5" type="Sprite2D" parent="ForegroundElements/Light2" unique_id=934363463]
 modulate = Color(0.20666403, 0.18315743, 0.08810909, 0.49803922)
 z_index = 4
 material = SubResource("CanvasItemMaterial_pr1fc")
@@ -216,7 +245,7 @@ rotation = 0.33666804
 scale = Vector2(0.886979, 0.9963504)
 texture = ExtResource("6_6cl2u")
 
-[node name="Sprite2D6" type="Sprite2D" parent="Light2" unique_id=2115644360]
+[node name="Sprite2D6" type="Sprite2D" parent="ForegroundElements/Light2" unique_id=2115644360]
 modulate = Color(0.20666403, 0.18315743, 0.08810909, 0.49803922)
 z_index = 4
 material = SubResource("CanvasItemMaterial_pr1fc")
@@ -225,7 +254,7 @@ rotation = 0.23422003
 scale = Vector2(0.886979, 0.9963504)
 texture = ExtResource("6_6cl2u")
 
-[node name="Sprite2D7" type="Sprite2D" parent="Light2" unique_id=1501546314]
+[node name="Sprite2D7" type="Sprite2D" parent="ForegroundElements/Light2" unique_id=1501546314]
 modulate = Color(0.20666403, 0.18315743, 0.08810909, 0.49803922)
 z_index = 4
 material = SubResource("CanvasItemMaterial_pr1fc")
@@ -234,7 +263,7 @@ rotation = 0.23422003
 scale = Vector2(0.886979, 0.9963504)
 texture = ExtResource("6_6cl2u")
 
-[node name="Sprite2D8" type="Sprite2D" parent="Light2" unique_id=309209807]
+[node name="Sprite2D8" type="Sprite2D" parent="ForegroundElements/Light2" unique_id=309209807]
 modulate = Color(0.20666403, 0.18315743, 0.08810909, 0.49803922)
 z_index = 4
 material = SubResource("CanvasItemMaterial_pr1fc")
@@ -243,9 +272,14 @@ rotation = 0.23422003
 scale = Vector2(0.886979, 0.9963504)
 texture = ExtResource("6_6cl2u")
 
-[node name="PlayerSpawn" parent="." unique_id=1446130991 instance=ExtResource("6_x3n6u")]
+[node name="FogParallax" type="Parallax2D" parent="ForegroundElements" unique_id=396616149]
+z_index = 9
+scroll_scale = Vector2(1.3, 1)
+repeat_size = Vector2(512, 0)
+autoscroll = Vector2(-20, 0)
+repeat_times = 3
 
-[node name="MusicAutoTrigger" type="Node" parent="." unique_id=287898018]
-script = ExtResource("7_x3n6u")
-track = ExtResource("8_ineqx")
-metadata/_custom_type_script = "uid://b4vgmi3wgjcrs"
+[node name="FogSprite" type="Sprite2D" parent="ForegroundElements/FogParallax" unique_id=654220138]
+material = ExtResource("10_387fj")
+position = Vector2(641, -6)
+texture = SubResource("NoiseTexture2D_pr1fc")
